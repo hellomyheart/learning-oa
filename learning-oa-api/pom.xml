@@ -155,7 +155,7 @@
 
     <modules>
         <module>learning-oa-admin-api</module>
-        <module>learn-oa-user-api</module>
+        <module>learning-oa-user-api</module>
     </modules>
 
 
