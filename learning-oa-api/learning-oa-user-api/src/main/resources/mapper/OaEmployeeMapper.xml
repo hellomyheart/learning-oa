@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.user.mapper.OaEmployeeMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaEmployee">
+    <!--@mbg.generated-->
+    <!--@Table oa_employee-->
+    <id column="e_id" jdbcType="INTEGER" property="eId" />
+    <result column="e_name" jdbcType="VARCHAR" property="eName" />
+    <result column="e_sex" jdbcType="VARCHAR" property="eSex" />
+    <result column="e_birthday" jdbcType="DATE" property="eBirthday" />
+    <result column="e_identify" jdbcType="VARCHAR" property="eIdentify" />
+    <result column="e_phone" jdbcType="VARCHAR" property="ePhone" />
+    <result column="e_email" jdbcType="VARCHAR" property="eEmail" />
+    <result column="e_status" jdbcType="VARCHAR" property="eStatus" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="e_createTime" jdbcType="TIMESTAMP" property="eCreatetime" />
+    <result column="e_updateTime" jdbcType="TIMESTAMP" property="eUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    e_id, e_name, e_sex, e_birthday, e_identify, e_phone, e_email, e_status, u_id, e_createTime, 
+    e_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_employee
+    where e_id = #{eId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_employee
+    where e_id = #{eId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="e_id" keyProperty="eId" parameterType="cn.hellomyheart.learning.oa.domain.OaEmployee" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_employee (e_name, e_sex, e_birthday, 
+      e_identify, e_phone, e_email, 
+      e_status, u_id, e_createTime, 
+      e_updateTime)
+    values (#{eName,jdbcType=VARCHAR}, #{eSex,jdbcType=VARCHAR}, #{eBirthday,jdbcType=DATE}, 
+      #{eIdentify,jdbcType=VARCHAR}, #{ePhone,jdbcType=VARCHAR}, #{eEmail,jdbcType=VARCHAR}, 
+      #{eStatus,jdbcType=VARCHAR}, #{uId,jdbcType=INTEGER}, #{eCreatetime,jdbcType=TIMESTAMP}, 
+      #{eUpdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="e_id" keyProperty="eId" parameterType="cn.hellomyheart.learning.oa.domain.OaEmployee" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eName != null">
+        e_name,
+      </if>
+      <if test="eSex != null">
+        e_sex,
+      </if>
+      <if test="eBirthday != null">
+        e_birthday,
+      </if>
+      <if test="eIdentify != null">
+        e_identify,
+      </if>
+      <if test="ePhone != null">
+        e_phone,
+      </if>
+      <if test="eEmail != null">
+        e_email,
+      </if>
+      <if test="eStatus != null">
+        e_status,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="eCreatetime != null">
+        e_createTime,
+      </if>
+      <if test="eUpdatetime != null">
+        e_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eName != null">
+        #{eName,jdbcType=VARCHAR},
+      </if>
+      <if test="eSex != null">
+        #{eSex,jdbcType=VARCHAR},
+      </if>
+      <if test="eBirthday != null">
+        #{eBirthday,jdbcType=DATE},
+      </if>
+      <if test="eIdentify != null">
+        #{eIdentify,jdbcType=VARCHAR},
+      </if>
+      <if test="ePhone != null">
+        #{ePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="eEmail != null">
+        #{eEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="eStatus != null">
+        #{eStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="eCreatetime != null">
+        #{eCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eUpdatetime != null">
+        #{eUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaEmployee">
+    <!--@mbg.generated-->
+    update oa_employee
+    <set>
+      <if test="eName != null">
+        e_name = #{eName,jdbcType=VARCHAR},
+      </if>
+      <if test="eSex != null">
+        e_sex = #{eSex,jdbcType=VARCHAR},
+      </if>
+      <if test="eBirthday != null">
+        e_birthday = #{eBirthday,jdbcType=DATE},
+      </if>
+      <if test="eIdentify != null">
+        e_identify = #{eIdentify,jdbcType=VARCHAR},
+      </if>
+      <if test="ePhone != null">
+        e_phone = #{ePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="eEmail != null">
+        e_email = #{eEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="eStatus != null">
+        e_status = #{eStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="eCreatetime != null">
+        e_createTime = #{eCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eUpdatetime != null">
+        e_updateTime = #{eUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where e_id = #{eId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaEmployee">
+    <!--@mbg.generated-->
+    update oa_employee
+    set e_name = #{eName,jdbcType=VARCHAR},
+      e_sex = #{eSex,jdbcType=VARCHAR},
+      e_birthday = #{eBirthday,jdbcType=DATE},
+      e_identify = #{eIdentify,jdbcType=VARCHAR},
+      e_phone = #{ePhone,jdbcType=VARCHAR},
+      e_email = #{eEmail,jdbcType=VARCHAR},
+      e_status = #{eStatus,jdbcType=VARCHAR},
+      u_id = #{uId,jdbcType=INTEGER},
+      e_createTime = #{eCreatetime,jdbcType=TIMESTAMP},
+      e_updateTime = #{eUpdatetime,jdbcType=TIMESTAMP}
+    where e_id = #{eId,jdbcType=INTEGER}
+  </update>
+</mapper>

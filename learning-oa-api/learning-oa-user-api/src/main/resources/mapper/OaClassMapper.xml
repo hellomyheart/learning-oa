@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.user.mapper.OaClassMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaClass">
+    <!--@mbg.generated-->
+    <!--@Table oa_class-->
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_no" jdbcType="VARCHAR" property="cNo" />
+    <result column="c_location" jdbcType="VARCHAR" property="cLocation" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="c_time" jdbcType="DATE" property="cTime" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="c_createTime" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="c_updateTime" jdbcType="TIMESTAMP" property="cUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    c_id, c_no, c_location, course_id, c_time, u_id, c_createTime, c_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_class
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_class
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.hellomyheart.learning.oa.domain.OaClass">
+    <!--@mbg.generated-->
+    insert into oa_class (c_id, c_no, c_location, 
+      course_id, c_time, u_id, 
+      c_createTime, c_updateTime)
+    values (#{cId,jdbcType=INTEGER}, #{cNo,jdbcType=VARCHAR}, #{cLocation,jdbcType=VARCHAR}, 
+      #{courseId,jdbcType=INTEGER}, #{cTime,jdbcType=DATE}, #{uId,jdbcType=INTEGER}, 
+      #{cCreatetime,jdbcType=TIMESTAMP}, #{cUpdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.hellomyheart.learning.oa.domain.OaClass">
+    <!--@mbg.generated-->
+    insert into oa_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="cNo != null">
+        c_no,
+      </if>
+      <if test="cLocation != null">
+        c_location,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="cTime != null">
+        c_time,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="cCreatetime != null">
+        c_createTime,
+      </if>
+      <if test="cUpdatetime != null">
+        c_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cNo != null">
+        #{cNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cLocation != null">
+        #{cLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="cTime != null">
+        #{cTime,jdbcType=DATE},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdatetime != null">
+        #{cUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaClass">
+    <!--@mbg.generated-->
+    update oa_class
+    <set>
+      <if test="cNo != null">
+        c_no = #{cNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cLocation != null">
+        c_location = #{cLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="cTime != null">
+        c_time = #{cTime,jdbcType=DATE},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="cCreatetime != null">
+        c_createTime = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdatetime != null">
+        c_updateTime = #{cUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaClass">
+    <!--@mbg.generated-->
+    update oa_class
+    set c_no = #{cNo,jdbcType=VARCHAR},
+      c_location = #{cLocation,jdbcType=VARCHAR},
+      course_id = #{courseId,jdbcType=INTEGER},
+      c_time = #{cTime,jdbcType=DATE},
+      u_id = #{uId,jdbcType=INTEGER},
+      c_createTime = #{cCreatetime,jdbcType=TIMESTAMP},
+      c_updateTime = #{cUpdatetime,jdbcType=TIMESTAMP}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+</mapper>

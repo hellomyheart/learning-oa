@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.admin.mapper.OaDepartmentMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaDepartment">
+    <!--@mbg.generated-->
+    <!--@Table oa_department-->
+    <id column="d_id" jdbcType="INTEGER" property="dId" />
+    <result column="d_name" jdbcType="VARCHAR" property="dName" />
+    <result column="d_num" jdbcType="INTEGER" property="dNum" />
+    <result column="d_status" jdbcType="VARCHAR" property="dStatus" />
+    <result column="d_createTime" jdbcType="TIMESTAMP" property="dCreatetime" />
+    <result column="d_updateTime" jdbcType="TIMESTAMP" property="dUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    d_id, d_name, d_num, d_status, d_createTime, d_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_department
+    where d_id = #{dId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_department
+    where d_id = #{dId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="d_id" keyProperty="dId" parameterType="cn.hellomyheart.learning.oa.domain.OaDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_department (d_name, d_num, d_status, 
+      d_createTime, d_updateTime)
+    values (#{dName,jdbcType=VARCHAR}, #{dNum,jdbcType=INTEGER}, #{dStatus,jdbcType=VARCHAR}, 
+      #{dCreatetime,jdbcType=TIMESTAMP}, #{dUpdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="d_id" keyProperty="dId" parameterType="cn.hellomyheart.learning.oa.domain.OaDepartment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_department
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dName != null">
+        d_name,
+      </if>
+      <if test="dNum != null">
+        d_num,
+      </if>
+      <if test="dStatus != null">
+        d_status,
+      </if>
+      <if test="dCreatetime != null">
+        d_createTime,
+      </if>
+      <if test="dUpdatetime != null">
+        d_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dName != null">
+        #{dName,jdbcType=VARCHAR},
+      </if>
+      <if test="dNum != null">
+        #{dNum,jdbcType=INTEGER},
+      </if>
+      <if test="dStatus != null">
+        #{dStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dCreatetime != null">
+        #{dCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dUpdatetime != null">
+        #{dUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaDepartment">
+    <!--@mbg.generated-->
+    update oa_department
+    <set>
+      <if test="dName != null">
+        d_name = #{dName,jdbcType=VARCHAR},
+      </if>
+      <if test="dNum != null">
+        d_num = #{dNum,jdbcType=INTEGER},
+      </if>
+      <if test="dStatus != null">
+        d_status = #{dStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dCreatetime != null">
+        d_createTime = #{dCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dUpdatetime != null">
+        d_updateTime = #{dUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where d_id = #{dId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaDepartment">
+    <!--@mbg.generated-->
+    update oa_department
+    set d_name = #{dName,jdbcType=VARCHAR},
+      d_num = #{dNum,jdbcType=INTEGER},
+      d_status = #{dStatus,jdbcType=VARCHAR},
+      d_createTime = #{dCreatetime,jdbcType=TIMESTAMP},
+      d_updateTime = #{dUpdatetime,jdbcType=TIMESTAMP}
+    where d_id = #{dId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.admin.mapper.OaLoginlogMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaLoginlog">
+    <!--@mbg.generated-->
+    <!--@Table oa_loginlog-->
+    <id column="l_id" jdbcType="INTEGER" property="lId" />
+    <result column="l_ip" jdbcType="VARCHAR" property="lIp" />
+    <result column="l_location" jdbcType="VARCHAR" property="lLocation" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="l_createTime" jdbcType="TIMESTAMP" property="lCreatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    l_id, l_ip, l_location, u_id, l_createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_loginlog
+    where l_id = #{lId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_loginlog
+    where l_id = #{lId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.hellomyheart.learning.oa.domain.OaLoginlog">
+    <!--@mbg.generated-->
+    insert into oa_loginlog (l_id, l_ip, l_location, 
+      u_id, l_createTime)
+    values (#{lId,jdbcType=INTEGER}, #{lIp,jdbcType=VARCHAR}, #{lLocation,jdbcType=VARCHAR}, 
+      #{uId,jdbcType=INTEGER}, #{lCreatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.hellomyheart.learning.oa.domain.OaLoginlog">
+    <!--@mbg.generated-->
+    insert into oa_loginlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lId != null">
+        l_id,
+      </if>
+      <if test="lIp != null">
+        l_ip,
+      </if>
+      <if test="lLocation != null">
+        l_location,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="lCreatetime != null">
+        l_createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lId != null">
+        #{lId,jdbcType=INTEGER},
+      </if>
+      <if test="lIp != null">
+        #{lIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lLocation != null">
+        #{lLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="lCreatetime != null">
+        #{lCreatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaLoginlog">
+    <!--@mbg.generated-->
+    update oa_loginlog
+    <set>
+      <if test="lIp != null">
+        l_ip = #{lIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lLocation != null">
+        l_location = #{lLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="lCreatetime != null">
+        l_createTime = #{lCreatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where l_id = #{lId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaLoginlog">
+    <!--@mbg.generated-->
+    update oa_loginlog
+    set l_ip = #{lIp,jdbcType=VARCHAR},
+      l_location = #{lLocation,jdbcType=VARCHAR},
+      u_id = #{uId,jdbcType=INTEGER},
+      l_createTime = #{lCreatetime,jdbcType=TIMESTAMP}
+    where l_id = #{lId,jdbcType=INTEGER}
+  </update>
+</mapper>

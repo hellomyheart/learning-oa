@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.admin.mapper.OaCourseMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaCourse">
+    <!--@mbg.generated-->
+    <!--@Table oa_course-->
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="c_name" jdbcType="VARCHAR" property="cName" />
+    <result column="c_week" jdbcType="VARCHAR" property="cWeek" />
+    <result column="c_status" jdbcType="VARCHAR" property="cStatus" />
+    <result column="c_createTime" jdbcType="TIMESTAMP" property="cCreatetime" />
+    <result column="c_updateTime" jdbcType="TIMESTAMP" property="cUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    c_id, c_name, c_week, c_status, c_createTime, c_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_course
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_course
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="c_id" keyProperty="cId" parameterType="cn.hellomyheart.learning.oa.domain.OaCourse" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_course (c_name, c_week, c_status, 
+      c_createTime, c_updateTime)
+    values (#{cName,jdbcType=VARCHAR}, #{cWeek,jdbcType=VARCHAR}, #{cStatus,jdbcType=VARCHAR}, 
+      #{cCreatetime,jdbcType=TIMESTAMP}, #{cUpdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="c_id" keyProperty="cId" parameterType="cn.hellomyheart.learning.oa.domain.OaCourse" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_course
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cName != null">
+        c_name,
+      </if>
+      <if test="cWeek != null">
+        c_week,
+      </if>
+      <if test="cStatus != null">
+        c_status,
+      </if>
+      <if test="cCreatetime != null">
+        c_createTime,
+      </if>
+      <if test="cUpdatetime != null">
+        c_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cName != null">
+        #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cWeek != null">
+        #{cWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null">
+        #{cStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdatetime != null">
+        #{cUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaCourse">
+    <!--@mbg.generated-->
+    update oa_course
+    <set>
+      <if test="cName != null">
+        c_name = #{cName,jdbcType=VARCHAR},
+      </if>
+      <if test="cWeek != null">
+        c_week = #{cWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="cStatus != null">
+        c_status = #{cStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="cCreatetime != null">
+        c_createTime = #{cCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUpdatetime != null">
+        c_updateTime = #{cUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaCourse">
+    <!--@mbg.generated-->
+    update oa_course
+    set c_name = #{cName,jdbcType=VARCHAR},
+      c_week = #{cWeek,jdbcType=VARCHAR},
+      c_status = #{cStatus,jdbcType=VARCHAR},
+      c_createTime = #{cCreatetime,jdbcType=TIMESTAMP},
+      c_updateTime = #{cUpdatetime,jdbcType=TIMESTAMP}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+</mapper>

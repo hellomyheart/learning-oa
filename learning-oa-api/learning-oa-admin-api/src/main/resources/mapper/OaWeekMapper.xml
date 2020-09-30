@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.admin.mapper.OaWeekMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaWeek">
+    <!--@mbg.generated-->
+    <!--@Table oa_week-->
+    <id column="w_id" jdbcType="INTEGER" property="wId" />
+    <result column="w_title" jdbcType="VARCHAR" property="wTitle" />
+    <result column="w_content" jdbcType="LONGVARCHAR" property="wContent" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="w_createTime" jdbcType="TIMESTAMP" property="wCreatetime" />
+    <result column="w_updateTime" jdbcType="TIMESTAMP" property="wUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    w_id, w_title, w_content, u_id, w_createTime, w_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_week
+    where w_id = #{wId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_week
+    where w_id = #{wId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.hellomyheart.learning.oa.domain.OaWeek">
+    <!--@mbg.generated-->
+    insert into oa_week (w_id, w_title, w_content, 
+      u_id, w_createTime, w_updateTime
+      )
+    values (#{wId,jdbcType=INTEGER}, #{wTitle,jdbcType=VARCHAR}, #{wContent,jdbcType=LONGVARCHAR}, 
+      #{uId,jdbcType=INTEGER}, #{wCreatetime,jdbcType=TIMESTAMP}, #{wUpdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.hellomyheart.learning.oa.domain.OaWeek">
+    <!--@mbg.generated-->
+    insert into oa_week
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wId != null">
+        w_id,
+      </if>
+      <if test="wTitle != null">
+        w_title,
+      </if>
+      <if test="wContent != null">
+        w_content,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="wCreatetime != null">
+        w_createTime,
+      </if>
+      <if test="wUpdatetime != null">
+        w_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wId != null">
+        #{wId,jdbcType=INTEGER},
+      </if>
+      <if test="wTitle != null">
+        #{wTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wContent != null">
+        #{wContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="wCreatetime != null">
+        #{wCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wUpdatetime != null">
+        #{wUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaWeek">
+    <!--@mbg.generated-->
+    update oa_week
+    <set>
+      <if test="wTitle != null">
+        w_title = #{wTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wContent != null">
+        w_content = #{wContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="wCreatetime != null">
+        w_createTime = #{wCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wUpdatetime != null">
+        w_updateTime = #{wUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where w_id = #{wId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaWeek">
+    <!--@mbg.generated-->
+    update oa_week
+    set w_title = #{wTitle,jdbcType=VARCHAR},
+      w_content = #{wContent,jdbcType=LONGVARCHAR},
+      u_id = #{uId,jdbcType=INTEGER},
+      w_createTime = #{wCreatetime,jdbcType=TIMESTAMP},
+      w_updateTime = #{wUpdatetime,jdbcType=TIMESTAMP}
+    where w_id = #{wId,jdbcType=INTEGER}
+  </update>
+</mapper>

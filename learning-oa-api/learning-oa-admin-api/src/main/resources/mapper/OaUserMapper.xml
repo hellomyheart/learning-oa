@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellomyheart.learning.oa.admin.mapper.OaUserMapper">
+  <resultMap id="BaseResultMap" type="cn.hellomyheart.learning.oa.domain.OaUser">
+    <!--@mbg.generated-->
+    <!--@Table oa_user-->
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_name" jdbcType="VARCHAR" property="uName" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+    <result column="u_imgPath" jdbcType="VARCHAR" property="uImgpath" />
+    <result column="u_status" jdbcType="VARCHAR" property="uStatus" />
+    <result column="u_createTime" jdbcType="TIMESTAMP" property="uCreatetime" />
+    <result column="u_updateTime" jdbcType="TIMESTAMP" property="uUpdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    u_id, u_name, u_password, u_imgPath, u_status, u_createTime, u_updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oa_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from oa_user
+    where u_id = #{uId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="u_id" keyProperty="uId" parameterType="cn.hellomyheart.learning.oa.domain.OaUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_user (u_name, u_password, u_imgPath, 
+      u_status, u_createTime, u_updateTime
+      )
+    values (#{uName,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, #{uImgpath,jdbcType=VARCHAR}, 
+      #{uStatus,jdbcType=VARCHAR}, #{uCreatetime,jdbcType=TIMESTAMP}, #{uUpdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="u_id" keyProperty="uId" parameterType="cn.hellomyheart.learning.oa.domain.OaUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into oa_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uName != null">
+        u_name,
+      </if>
+      <if test="uPassword != null">
+        u_password,
+      </if>
+      <if test="uImgpath != null">
+        u_imgPath,
+      </if>
+      <if test="uStatus != null">
+        u_status,
+      </if>
+      <if test="uCreatetime != null">
+        u_createTime,
+      </if>
+      <if test="uUpdatetime != null">
+        u_updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uName != null">
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uImgpath != null">
+        #{uImgpath,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null">
+        #{uStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="uCreatetime != null">
+        #{uCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uUpdatetime != null">
+        #{uUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.hellomyheart.learning.oa.domain.OaUser">
+    <!--@mbg.generated-->
+    update oa_user
+    <set>
+      <if test="uName != null">
+        u_name = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null">
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uImgpath != null">
+        u_imgPath = #{uImgpath,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null">
+        u_status = #{uStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="uCreatetime != null">
+        u_createTime = #{uCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uUpdatetime != null">
+        u_updateTime = #{uUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.hellomyheart.learning.oa.domain.OaUser">
+    <!--@mbg.generated-->
+    update oa_user
+    set u_name = #{uName,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR},
+      u_imgPath = #{uImgpath,jdbcType=VARCHAR},
+      u_status = #{uStatus,jdbcType=VARCHAR},
+      u_createTime = #{uCreatetime,jdbcType=TIMESTAMP},
+      u_updateTime = #{uUpdatetime,jdbcType=TIMESTAMP}
+    where u_id = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>
